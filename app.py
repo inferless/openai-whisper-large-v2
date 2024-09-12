@@ -28,7 +28,7 @@ class InferlessPythonModel:
 
         input_features = self.processor(audio_array, sampling_rate=sampling_rate, return_tensors="pt").input_features
 
-        predicted_ids = self.model.generate(input_features)
+        predicted_ids = self.model.generate(input_features.to("cuda"))
         transcription = self.processor.batch_decode(predicted_ids, skip_special_tokens=True)
 
         return {"transcribed_output": transcription[0]}
