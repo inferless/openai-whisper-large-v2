@@ -18,7 +18,7 @@ class InferlessPythonModel:
         
     def initialize(self):
         self.processor = WhisperProcessor.from_pretrained("openai/whisper-large-v2")
-        self.model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-large-v2").to("cuda")
+        self.model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-large-v2",device_map="cuda")
         self.model.config.forced_decoder_ids = None
 
     def infer(self, inputs):
