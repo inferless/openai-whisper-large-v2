@@ -16,10 +16,11 @@ Get started by forking the repository. You can do this by clicking on the fork b
 
 This will create a copy of the repository in your own GitHub account, allowing you to make changes and customize it according to your needs.
 
-### Create a Custom Runtime in Inferless
+## Create a Custom Runtime in Inferless
 To access the custom runtime window in Inferless, simply navigate to the sidebar and click on the **Create new Runtime** button. A pop-up will appear.
 
 Next, provide a suitable name for your custom runtime and proceed by uploading the **config.yaml** file given above. Finally, ensure you save your changes by clicking on the save button.
+
 
 ### Import the Model in Inferless
 Log in to your inferless account, select the workspace you want the model to be imported into and click the Add Model button.
@@ -31,42 +32,6 @@ After the create model step, while setting the configuration for the model make 
 Enter all the required details to Import your model. Refer [this link](https://docs.inferless.com/integrations/github-custom-code) for more information on model import.
 
 The following is a sample Input and Output JSON for this model which you can use while importing this model on Inferless.
-
-### Input
-```json
-{
-  "inputs": [
-    {
-      "data": [
-        "https://cdn-media.huggingface.co/speech_samples/sample1.flac"
-      ],
-      "name": "audio_url",
-      "shape": [
-        1
-      ],
-      "datatype": "BYTES"
-    }
-  ]
-}
-```
-
-### Output
-```json
-{
-  "outputs": [
-    {
-      "data": [
-        "blank"
-      ],
-      "name": "transcribed_output",
-      "shape": [
-        1
-      ],
-      "datatype": "BYTES"
-    }
-  ]
-}
-```
 
 ---
 ## Curl Command
