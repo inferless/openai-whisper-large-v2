@@ -1,6 +1,6 @@
 version: 1.0.0
 
-name: Openai-whisper-large-v2
+name: openai-whisper-large-v2
 import_source: GIT
 
 # you can choose the options between ONNX, TENSORFLOW, PYTORCH
