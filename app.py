@@ -1,3 +1,6 @@
+import os
+os.environ["HF_HUB_ENABLE_HF_TRANSFER"]='1'
+from huggingface_hub import snapshot_download
 import librosa
 import requests
 from transformers import WhisperProcessor, WhisperForConditionalGeneration
@@ -17,8 +20,10 @@ class InferlessPythonModel:
         return filename
         
     def initialize(self):
-        self.processor = WhisperProcessor.from_pretrained("openai/whisper-large-v2")
-        self.model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-large-v2",device_map="cuda")
+        model_id = "openai/whisper-large-v2"
+        snapshot_download(repo_id=model_id,allow_patterns=["*.safetensors"])
+        self.processor = WhisperProcessor.from_pretrained(model_id)
+        self.model = WhisperForConditionalGeneration.from_pretrained(model_id,device_map="cuda")
         self.model.config.forced_decoder_ids = None
 
     def infer(self, inputs):
